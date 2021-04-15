@@ -14,12 +14,12 @@
     ></v-text-field>
     
     <v-list
-      v-if="tasks.length"
+      v-if="$store.state.tasks.length"
       class="pt-0"
       flat
     >
       <div
-        v-for="task in tasks" 
+        v-for="task in $store.state.tasks" 
         :key="task.id"
       >
         <v-list-item
@@ -80,23 +80,7 @@ export default {
   data() {
     return {
       newTaskTitle: '',
-      tasks: [
-        // {
-        //   id: 1,
-        //   title: 'Task 1',
-        //   done: false
-        // },
-        // {
-        //   id: 2,
-        //   title: 'Task 2',
-        //   done: false
-        // },
-        // {
-        //   id: 3,
-        //   title: 'Task 3',
-        //   done: false
-        // }
-      ]
+      
     }
   },
   methods: {
