@@ -2,7 +2,7 @@
   <div class="home">
     <v-text-field
       v-model="newTaskTitle"
-      @click:append="addTask"
+      @click:append="addTask" 
       @keyup.enter="addTask"
       class="pa-3"
       outlined
@@ -23,7 +23,7 @@
         :key="task.id"
       >
         <v-list-item
-          @click="doneTask(task.id)" 
+          @click="$store.commit('doneTask', task.id)" 
           :class="{ 'teal lighten-5' : task.done }"
         >
           <template v-slot:default>
@@ -46,7 +46,7 @@
             <v-list-item-action>
               <!-- The stop method is used to prevent triggering parent element -->
               <v-btn 
-              @click.stop="deleteTask(task.id)"
+              @click.stop="$store.commit('deleteTask', task.id)"
               icon
               >
                 <v-icon color="teal lighten-3">mdi-delete-empty-outline</v-icon>
@@ -80,25 +80,12 @@ export default {
   data() {
     return {
       newTaskTitle: '',
-      
     }
   },
   methods: {
     addTask() {
-      let newTask = {
-        id: Date.now(),
-        title: this.newTaskTitle,
-        done: false
-      }
-      this.tasks.push(newTask)
+      this.$store.commit('addTask', this.newTaskTitle)
       this.newTaskTitle = ''
-    },
-    doneTask(id) {
-      let task = this.tasks.filter(task => task.id === id)[0]
-      task.done = !task.done
-    },
-    deleteTask(id) {
-      this.tasks = this.tasks.filter(task => task.id !== id)
     }
   }
 }
