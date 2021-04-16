@@ -1,0 +1,34 @@
+<template>
+    <v-text-field
+      v-model="newTaskTitle"
+      @click:append="addTask" 
+      @keyup.enter="addTask"
+      class="pa-3"
+      outlined
+      color="teal"
+      label="Add Task"
+      append-icon="mdi-pencil-plus-outline"
+      hide-details
+      clearable
+    ></v-text-field>
+</template>
+
+<script>
+export default {
+    data() {
+    return {
+      newTaskTitle: '',
+    }
+  },
+  methods: {
+    addTask() {
+      this.$store.commit('addTask', this.newTaskTitle)
+      this.newTaskTitle = ''
+    }
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+
+</style>
