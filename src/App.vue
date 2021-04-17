@@ -74,12 +74,17 @@
     <v-main>
       <!-- Routes -->
       <router-view></router-view>
+      <!-- Snackbars -->
+      <snackbar />
     </v-main>
   </v-app>
 </template>
 
 <script>
   export default {
+    components: {
+      'snackbar' : require('@/components/Global/Snackbar.vue').default
+    },
     data: () => ({ 
       drawer: null,
       items: [

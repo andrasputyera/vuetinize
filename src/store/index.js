@@ -22,7 +22,10 @@ export default new Vuex.Store({
         title: 'Task 3',
         done: false
       }
-    ]
+    ],
+    snackbar: {
+      show: false
+    }
   },
   // To immediately change data in the state (can't use async code)
   mutations: {
