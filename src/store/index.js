@@ -44,10 +44,17 @@ export default new Vuex.Store({
     },
     deleteTask(state, id) {
       state.tasks = state.tasks.filter(task => task.id !== id)
+    },
+    showSnackbar(state) {
+      state.snackbar.show = true
     }
   },
   // To make API calls (can be async)
   actions: {
+    addTask({ commit }, newTaskTitle) {
+      commit('addTask', newTaskTitle)
+      commit('showSnackbar')
+    }
   },
   // To get data from the state (and make small changes to it i.e. filter)
   getters: {
