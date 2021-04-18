@@ -24,7 +24,8 @@ export default new Vuex.Store({
       }
     ],
     snackbar: {
-      show: false
+      show: false,
+      text: ''
     }
   },
   // To immediately change data in the state (can't use async code)
@@ -45,15 +46,20 @@ export default new Vuex.Store({
     deleteTask(state, id) {
       state.tasks = state.tasks.filter(task => task.id !== id)
     },
-    showSnackbar(state) {
+    showSnackbar(state, text) {
       state.snackbar.show = true
+      state.snackbar.text = text
     }
   },
   // To make API calls (can be async)
   actions: {
     addTask({ commit }, newTaskTitle) {
       commit('addTask', newTaskTitle)
-      commit('showSnackbar')
+      commit('showSnackbar', 'Task added!')
+    },
+    deleteTask({ commit }, id) {
+      commit('deleteTask', id)
+      commit('showSnackbar', 'Task deleted!')
     }
   },
   // To get data from the state (and make small changes to it i.e. filter)

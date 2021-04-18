@@ -24,7 +24,7 @@
             <v-list-item-action>
               <!-- The stop method is used to prevent triggering parent element -->
               <v-btn 
-              @click.stop="$store.commit('deleteTask', task.id)"
+              @click.stop="$store.dispatch('deleteTask', task.id)"
               icon
               >
                 <v-icon color="teal lighten-3">mdi-delete-empty-outline</v-icon>
