@@ -7,7 +7,7 @@
       outlined
       color="teal"
       label="Add Task"
-      append-icon="mdi-pencil-plus-outline"
+      append-icon="mdi-plus-box-multiple-outline"
       hide-details
       clearable
     ></v-text-field>
