@@ -12,16 +12,16 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
+            @click="$emit('close')"
             color="grey"
             text
-            @click="dialog = false"
           >
             No
           </v-btn>
           <v-btn
+            @click="$store.dispatch('deleteTask', task.id)"
             color="teal darken-1"
             text
-            @click="dialog = false"
           >
             Yes
           </v-btn>
@@ -32,6 +32,7 @@
 
 <script>
 export default {
+    props: ['task']
     
 }
 </script>

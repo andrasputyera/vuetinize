@@ -34,12 +34,15 @@
         </v-list-item>
         <v-divider></v-divider>
 
-        <dialog-delete v-if="dialogs.delete" />
+        <dialog-delete 
+          v-if="dialogs.delete"
+          @close="dialogs.delete = false" 
+          :task="task" 
+        />
     </div>
 </template>
 
 <script>
-import DialogDelete from './Dialogs/DialogDelete.vue'
 export default {
     props: ['task'],
     data() {
