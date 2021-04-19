@@ -24,7 +24,7 @@
             <v-list-item-action>
               <!-- The stop method is used to prevent triggering parent element -->
               <v-btn 
-              @click.stop="$store.dispatch('deleteTask', task.id)"
+              @click.stop="dialogs.delete = true"
               icon
               >
                 <v-icon color="teal lighten-3">mdi-delete-empty-outline</v-icon>
@@ -33,11 +33,26 @@
           </template>
         </v-list-item>
         <v-divider></v-divider>
+
+        <dialog-delete v-if="dialogs.delete" />
     </div>
 </template>
 
 <script>
+import DialogDelete from './Dialogs/DialogDelete.vue'
 export default {
-    props: ['task']
+    props: ['task'],
+    data() {
+      return {
+        dialogs: {
+          delete: false
+        } 
+      }
+    },
+    components: {
+      'dialog-delete' : require('@/components/Todo/Dialogs/DialogDelete.vue').default
+    }
 }
 </script>
+
+        DialogDelete
