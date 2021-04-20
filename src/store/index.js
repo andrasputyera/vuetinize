@@ -11,13 +11,13 @@ export default new Vuex.Store({
         id: 1,
         title: 'Task 1',
         done: false,
-        dueDate: '2021-04-20'
+        dueDate: '2021-04-29'
       },
       {
         id: 2,
         title: 'Task 2',
         done: false,
-        dueDate: '2021-04-20'
+        dueDate: '2021-04-30'
       },
       {
         id: 3,
@@ -54,11 +54,15 @@ export default new Vuex.Store({
       let task = state.tasks.filter(task => task.id === payload.id)[0]
       task.title = payload.title
     },
+    updateTaskDueDate(state, payload) {
+      let task = state.tasks.filter(task => task.id === payload.id)[0]
+      task.dueDate = payload.dueDate
+    },
     showSnackbar(state, text) {
       let timeout = 0
       if (state.snackbar.show) {
         state.snackbar.show = false
-        timeout = 300
+        timeout = 200
       }
       setTimeout(() => {
         state.snackbar.show = true
@@ -82,6 +86,10 @@ export default new Vuex.Store({
     updateTaskTitle({ commit }, payload) {
       commit('updateTaskTitle', payload)
       commit('showSnackbar', 'Task updated!')
+    },
+    updateTaskDueDate({ commit }, payload) {
+      commit('updateTaskDueDate', payload)
+      commit('showSnackbar', 'Due date updated!')
     }
   },
   // To get data from the state (and make small changes to it i.e. filter)
