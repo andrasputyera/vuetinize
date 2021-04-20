@@ -15,7 +15,7 @@
           color="teal"
           :disabled="newTaskTitleInvalid"
         >
-          mdi-plus-box-multiple-outline
+          mdi-plus
         </v-icon>
       </template>
     </v-text-field>
