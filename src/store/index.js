@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   // To store the data and its properties. All compoments can access data directly.
   state: {
+    search: null,
     tasks: [
       {
         id: 1,
@@ -34,6 +35,9 @@ export default new Vuex.Store({
   // To immediately change data in the state (can't use async code)
   mutations: {
     // Always pass in the state as the 1st parameter. The 2nd parameter is the payload.
+    setSearch(state, value) {
+      state.search = value
+    },
     addTask(state, newTaskTitle) {
       let newTask = {
         id: Date.now(),
@@ -94,7 +98,14 @@ export default new Vuex.Store({
   },
   // To get data from the state (and make small changes to it i.e. filter)
   getters: {
-
+    tasksFiltered(state) {
+      if (!state.search) {
+        return state.tasks
+      }
+      return state.tasks.filter(task => 
+        task.title.toLowerCase().includes(state.search.toLowerCase())
+      )
+    }
   },
   // To break the store up into multiple states/mutations/actions/getters
   modules: {
