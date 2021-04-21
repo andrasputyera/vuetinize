@@ -52,13 +52,16 @@
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-app-bar-title>Vuetinize Today</v-app-bar-title>
-
-      <v-spacer></v-spacer>
-
-      <search />
+      <v-container class="pa-0">
+        <v-row>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-spacer></v-spacer>
+          <search />
+        </v-row>
+        <v-row>
+          <v-toolbar-title class="shrink-on-scroll ml-4">Vuetinize Today</v-toolbar-title>
+        </v-row>
+      </v-container>
 
     </v-app-bar>
 
