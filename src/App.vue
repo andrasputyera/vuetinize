@@ -44,6 +44,7 @@
       dark
       src="sunset.jpg"
       prominent
+      height="170"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -59,7 +60,10 @@
           <search />
         </v-row>
         <v-row>
-          <v-toolbar-title class="shrink-on-scroll ml-4">Vuetinize Today</v-toolbar-title>
+          <v-toolbar-title class="text-h4 ml-4">Vuetinize Today</v-toolbar-title>
+        </v-row>
+        <v-row>
+          <live-date-time />
         </v-row>
       </v-container>
 
@@ -78,6 +82,7 @@
   export default {
     components: {
       'search' : require('@/components/Tools/Search.vue').default,
+      'live-date-time' : require('@/components/Tools/LiveDateTime.vue').default,
       'snackbar' : require('@/components/Global/Snackbar.vue').default
     },
     data: () => ({ 
