@@ -31,7 +31,8 @@ export default new Vuex.Store({
     snackbar: {
       show: false,
       text: ''
-    }
+    },
+    sorting: false
   },
   // To immediately change data in the state (can't use async code)
   mutations: {
@@ -76,6 +77,9 @@ export default new Vuex.Store({
     },
     hideSnackbar(state) {
       state.snackbar.show = false
+    },
+    toggleSorting(state) {
+      state.sorting = !state.sorting
     }
   },
   // To make API calls (can be async)

@@ -11,6 +11,10 @@
       v-else
     />
 
+    <button-done-sorting 
+      v-if="$store.state.sorting"
+    />
+
   </div>
 </template>
 
@@ -21,7 +25,8 @@ export default {
   components: { 
     'field-add-task' : require('@/components/Todo/FieldAddTask.vue').default,
     'list-tasks' : require('@/components/Todo/ListTasks.vue').default,
-    'no-tasks' : require('@/components/Todo/NoTasks.vue').default
+    'no-tasks' : require('@/components/Todo/NoTasks.vue').default,
+    'button-done-sorting' : require('@/components/Todo/ButtonDoneSorting.vue').default
   }
 }
 </script>

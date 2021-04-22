@@ -6,12 +6,12 @@
         >
             <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                color="teal"
-                icon
-                v-bind="attrs"
-                v-on="on"
+                    color="teal"
+                    icon
+                    v-bind="attrs"
+                    v-on="on"
                 >
-                <v-icon>mdi-dots-vertical</v-icon>
+                    <v-icon>mdi-dots-vertical</v-icon>
                 </v-btn>
             </template>
 
@@ -75,6 +75,13 @@ export default {
             icon: 'mdi-delete-empty-outline',
             click() {
                 this.dialogs.delete = true
+            }  
+        },
+        { 
+            title: 'Sort',
+            icon: 'mdi-swap-vertical',
+            click() {
+                this.$store.commit('toggleSorting')
             }  
         },
       ],

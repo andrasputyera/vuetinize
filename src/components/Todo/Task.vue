@@ -30,15 +30,20 @@
             </v-list-item-action>
 
             <v-list-item-action>
-              <!-- The stop method is used to prevent triggering parent element -->
-              <!-- <v-btn 
-              @click.stop="dialogs.delete = true"
-              icon
-              >
-                <v-icon color="teal lighten-3">mdi-delete-empty-outline</v-icon>
-              </v-btn> -->
               <task-menu :task="task" />
             </v-list-item-action> 
+
+            <v-list-item-action
+              v-if="$store.state.sorting"
+            >
+              <v-btn
+                color="teal"
+                icon
+              >
+                <v-icon>mdi-swap-vertical</v-icon>
+              </v-btn>
+            </v-list-item-action> 
+
           </template>
         </v-list-item>
         <v-divider></v-divider>
