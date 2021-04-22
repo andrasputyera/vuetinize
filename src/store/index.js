@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   // To store the data and its properties. All compoments can access data directly.
   state: {
+    appTitle: process.env.VUE_APP_TITLE,
     search: null,
     tasks: [
       {

@@ -25,7 +25,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = `${ process.env.VUE_APP_TITLE=Vuetinize } - ${ to.name }`
+  document.title = `${ process.env.VUE_APP_TITLE } - ${ to.name }`
   next()
 })
 
