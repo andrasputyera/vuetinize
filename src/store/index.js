@@ -12,24 +12,24 @@ export default new Vuex.Store({
     appTitle: process.env.VUE_APP_TITLE,
     search: null,
     tasks: [
-      {
-        id: 1,
-        title: 'Task 1',
-        done: false,
-        dueDate: '2021-04-29'
-      },
-      {
-        id: 2,
-        title: 'Task 2',
-        done: false,
-        dueDate: '2021-04-30'
-      },
-      {
-        id: 3,
-        title: 'Task 3',
-        done: false,
-        dueDate: null
-      }
+      // {
+      //   id: 1,
+      //   title: 'Task 1',
+      //   done: false,
+      //   dueDate: '2021-04-29'
+      // },
+      // {
+      //   id: 2,
+      //   title: 'Task 2',
+      //   done: false,
+      //   dueDate: '2021-04-30'
+      // },
+      // {
+      //   id: 3,
+      //   title: 'Task 3',
+      //   done: false,
+      //   dueDate: null
+      // }
     ],
     snackbar: {
       show: false,
@@ -94,6 +94,14 @@ export default new Vuex.Store({
       db.collection('tasks').add(newTask).then(() => {
         commit('addTask', newTask)
         commit('showSnackbar', 'Task added!')
+      })
+    },
+    doneTask({ state, commit, }, id) {
+      let task = state.tasks.filter(task => task.id === id)[0]
+      db.collection('tasks').doc({ id: id }).update({
+        done: !tasks.done
+      }).then(() => {
+        commit('doneTask', id)
       })
     },
     deleteTask({ commit }, id) {
