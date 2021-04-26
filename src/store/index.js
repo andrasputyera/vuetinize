@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import Localbase from 'localbase'
 
 let db = new Localbase('db')
+db.config.debug = false
 
 Vue.use(Vuex)
 
@@ -125,6 +126,11 @@ export default new Vuex.Store({
         commit('updateTaskDueDate', payload)
         commit('showSnackbar', 'Due date updated!')
       })
+    },
+    setTasks({ commit }, tasks) {
+      // Needs to fire at the same time so there is no delay in UI/Index DB update
+      db.collection('tasks').set(tasks)
+      commit('setTasks', tasks)
     },
     getTasks({ commit }) {
       db.collection('tasks').get().then(tasks => {
