@@ -81,7 +81,11 @@ export default {
             title: 'Sort',
             icon: 'mdi-swap-vertical',
             click() {
-                this.$store.commit('toggleSorting')
+                if (!this.$store.state.search) {
+                    this.$store.commit('toggleSorting')
+                } else {
+                    this.$store.commit('showSnackbar', 'Sorting while searching is not available!')
+                }
             }  
         },
       ],
