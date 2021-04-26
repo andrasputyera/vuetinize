@@ -13,15 +13,15 @@
       >
       <v-avatar size="70" class="mb-2">
         <img
-          src="avatar.png"
-          alt="Avatar"
+          src="profile.jpg"
+          alt="Profile photo"
         >
       </v-avatar>
       <div class="white--text text-subtitle-1 font-weight-bold">
-        Roger Federer
+        Andras Putyera
       </div>
       <div class="white--text text-subtitle-2">
-        roger_federer
+        andras_putyera
       </div>
       </v-img>
 
@@ -52,12 +52,12 @@
       dark
       src="sunset.jpg"
       prominent
-      height="170"
+      :height="$route.path === '/' ? '230' : '170'"
     >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
-          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+          gradient="to top right, rgba(19,84,122,.8), rgba(128,208,199,.8)"
         ></v-img>
       </template>
 
@@ -74,6 +74,9 @@
         </v-row>
         <v-row>
           <live-date-time />
+        </v-row>
+        <v-row v-if="$route.path === '/'">
+          <field-add-task />
         </v-row>
       </v-container>
 
@@ -103,6 +106,7 @@
     components: {
       'search' : require('@/components/Tools/Search.vue').default,
       'live-date-time' : require('@/components/Tools/LiveDateTime.vue').default,
+      'field-add-task' : require('@/components/Todo/FieldAddTask.vue').default,
       'snackbar' : require('@/components/Global/Snackbar.vue').default
     }
   }
