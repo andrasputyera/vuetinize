@@ -59,6 +59,8 @@ export default {
           }
           this.$store.dispatch('updateTaskTitle', payload)
           this.$emit('close')
+          // Programmatic scrolling for keyboard popup
+          this.$vuetify.goTo(0, { duration: 0 })
           }
       }
     },   
