@@ -16,7 +16,7 @@ export default {
     methods: {
         getDate() {
             this.date = format(new Date(), 'MMMM d, yyyy H:mm:ss aa')
-            // setTimeout(this.getDate, 1000)
+            setTimeout(this.getDate, 1000)
         }
     },
     mounted() {
